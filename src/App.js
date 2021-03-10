@@ -67,7 +67,7 @@ class App extends Component {
     this.ifOnline();
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.mounted = false;
   }
 
@@ -75,26 +75,26 @@ class App extends Component {
     return (
       <div className="App">
         <div id="header-container">
-          <h1 id="header"><span id="devel">devel_</span><span id="up">Up</span><span id="plus">+</span></h1>
+          <h1 id="header"><span id="devel">WebDev</span><span id="up">for</span><span id="plus">Everybody</span></h1>
           {/* <p className="error-alert-offline" ><ErrorAlert text={this.state.infoText} /></p> */}
         </div>
         <br></br><br></br>
-          <p id="subheader">Want to level-up your dev skills?<br/><br/>Explore upcoming events in <span id="webdev-header">Web Development</span> from around the world!</p>
-        <br/><br/>
-        <label id="city-label">Select your city: 
-          <br/><br/><br/>
-          <CitySearch 
-            locations={this.state.locations} 
-            updateEvents={this.updateEvents} 
+        <p id="subheader">Want to improve your web development skills?<br /><br />Explore upcoming events in <span id="webdev-header">Web Development</span> from around the world!</p>
+        <br /><br />
+        <label id="city-label">Select your city:
+          <br /><br /><br />
+          <CitySearch
+            locations={this.state.locations}
+            updateEvents={this.updateEvents}
           />
         </label>
-        <br/><br/>
-        <NumberOfEvents 
+        <br /><br />
+        <NumberOfEvents
           numberOfEvents={this.state.numberOfEvents}
           updateEvents={this.updateEvents}
         />
         <br></br>
-        <EventList events={this.state.events}/>
+        <EventList events={this.state.events} />
       </div>
     );
   }
