@@ -75,7 +75,7 @@ class App extends Component {
     return (
       <div className="App">
         <div id="header-container">
-          <h1 id="header"><span id="devel">WebDev</span><span id="up">for</span><span id="plus">Everybody</span></h1>
+          <h1 id="header"><span id="devel">WebDev</span><span id="for">for</span><span id="Everybody">Everybody</span></h1>
           {/* <p className="error-alert-offline" ><ErrorAlert text={this.state.infoText} /></p> */}
         </div>
         <br></br><br></br>
