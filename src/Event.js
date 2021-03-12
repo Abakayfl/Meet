@@ -25,9 +25,11 @@ class Event extends Component {
 
     if (this.state.isExpanded) {
       return (
-        <div className='eventExpanded'>
-          <p className="description"><span></span>{event.description}</p>
-          <p className="eventCard--organizer"><span>Organizer: </span>{event.organizer.email}</p>
+        <div className="event">
+          <div className="eventExpanded">
+            <p className="description"><span></span>{event.description}</p>
+            <p className="eventCard--organizer"><span>Organizer: </span>{event.organizer.email}</p>
+          </div>
         </div>
       );
     }
@@ -50,7 +52,7 @@ class Event extends Component {
 
     return (
       <div className='event'>
-        <div className='eventCard'>
+        <div className='eventExpanded'>
           <h2 className='summary'>{event.summary}</h2>
           <p className='eventCard--date'><span>Starts at: </span>{this.formatTime()}</p>
           <p className='eventCard--date'><span>Timezone: </span>{event.start.timeZone}</p>
