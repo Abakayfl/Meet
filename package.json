@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.3",
+    "atatus-spa": "^4.3.2",
     "axios": "^0.21.1",
     "node": "^15.10.0",
     "nprogress": "^0.2.0",
@@ -60,6 +61,7 @@
     "jest-cucumber": "^3.0.1",
     "puppeteer": "^8.0.0",
     "react": "^16.4.0-0",
-    "react-dom": "^16.4.0-0"
+    "react-dom": "^16.4.0-0",
+    "start-server-and-test": "^1.12.0"
   }
 }
