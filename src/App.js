@@ -4,8 +4,7 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from './api';
-import "./nprogress.css";
-// import { ErrorAlert } from './Alert';
+import { OfflineAlert } from './Alert';
 
 class App extends Component {
 
@@ -13,7 +12,8 @@ class App extends Component {
     events: [],
     locations: [],
     numberOfEvents: '24',
-    currentLocation: "all"
+    currentLocation: "all",
+    alertText: ''
   }
 
   updateEvents = (location, eventCount) => {
@@ -76,7 +76,7 @@ class App extends Component {
       <div className="App">
         <div id="header-container">
           <h1 id="header"><span id="devel">WebDev</span><span id="for">for</span><span id="Everybody">Everybody</span></h1>
-          {/* <p className="error-alert-offline" ><ErrorAlert text={this.state.infoText} /></p> */}
+          <OfflineAlert text={this.state.infoText} />
         </div>
         <br></br><br></br>
         <p id="subheader">Want to improve your web development skills?<br /><br />Explore upcoming events in <span id="webdev-header">Web Development</span> from around the world!</p>
