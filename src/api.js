@@ -53,7 +53,7 @@ export const getEvents = async () => {
     //returns mock data on local host
     if (window.location.href.startsWith("http://localhost")) {
         NProgress.done();
-        return { events: mockData, locations: extractLocations(mockData) };
+        return mockData;
     }
 
     //returns previously cached events when online 
