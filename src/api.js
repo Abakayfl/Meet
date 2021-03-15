@@ -2,7 +2,7 @@ import { mockData } from './mock-data';
 import axios from 'axios';
 import NProgress from 'nprogress';
 
-export const extractLocations = (events) => {
+const extractLocations = (events) => {
     var extractLocations = events.map((event) => event.location);
     var locations = [...new Set(extractLocations)];
     return locations;
@@ -50,23 +50,22 @@ const checkToken = async (accessToken) => {
 export const getEvents = async () => {
     NProgress.start();
 
-    //returns mock data on local host
-    if (window.location.href.startsWith("http://localhost")) {
+    // Return mockData for local user
+    if (window.location.href.startsWith('http://localhost')) {
         NProgress.done();
-        return mockData;
-    }
-
-    //returns previously cached events when online 
-    if (!navigator.onLine) {
-        const events = localStorage.getItem("lastEvents");
-        NProgress.done();
-        return {
-            events: JSON.parse(events).events,
-            locations: extractLocations(JSON.parse(events).events),
-        };
+        return { events: mockData, locations: extractLocations(mockData) };
     }
 
     const token = await getAccessToken();
+
+    if (!navigator.onLine) {
+        const events = localStorage.getItem('lastEvents');
+        NProgress.done();
+        return {
+            events: JSON.parse(events).events,
+            locations: extractLocations(JSON.parse(events).events)
+        };
+    }
 
     if (token) {
         removeQuery();
