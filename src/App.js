@@ -4,7 +4,7 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import EventGenre from './EventGenre';
 import NumberOfEvents from './NumberOfEvents';
-import { getEvents } from './api';
+import { getEvents, extractLocations } from './api';
 import { OfflineAlert } from './Alert';
 import {
   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
@@ -63,14 +63,12 @@ class App extends Component {
 
   componentDidMount() {
     this.mounted = true;
-    getEvents().then((response) => {
+    getEvents().then((events) => {
       if (this.mounted) {
-        this.setState({
-          events: response.events,
-          locations: response.locations,
-        });
+        this.setState({ events, locations: extractLocations(events) });
       }
     });
+    this.ifOnline();
   }
 
   componentWillUnmount() {
