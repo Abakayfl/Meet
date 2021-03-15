@@ -4,7 +4,10 @@ import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 const EventGenre = ({ events }) => {
     const [data, setData] = useState([]);
 
-    useEffect(() => { setData(() => getData()); }, [events]);
+    useEffect(() => {
+        setData(() => getData());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [events]);
 
     const getData = () => {
         const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'AngularJS'];
