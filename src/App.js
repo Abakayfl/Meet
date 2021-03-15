@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
+import EventGenre from './EventGenre';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from './api';
 import { OfflineAlert } from './Alert';
+import {
+  ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
+} from 'recharts';
 
 class App extends Component {
 
@@ -70,6 +74,15 @@ class App extends Component {
   componentWillUnmount() {
     this.mounted = false;
   }
+  getData = () => {
+    const { locations, events } = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter((event) => event.location === location).length
+      const city = location.split(' ').shift()
+      return { city, number };
+    })
+    return data;
+  };
 
   render() {
     return (
@@ -94,6 +107,27 @@ class App extends Component {
           updateEvents={this.updateEvents}
         />
         <br></br>
+        <h4>Events in each city</h4>
+        <div className="data-vis-wrapper">
+          <EventGenre
+            locations={this.state.locations}
+            events={this.state.events}
+          />
+          <ResponsiveContainer height={400}>
+            <ScatterChart>
+              <CartesianGrid />
+              <XAxis type="category" dataKey="city" name="city" />
+              <YAxis
+                type="number"
+                dataKey="number"
+                name="number of events"
+                allowDecimals={false}
+              />
+              <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+              <Scatter data={this.getData()} fill="#8884d8" />
+            </ScatterChart>
+          </ResponsiveContainer>
+        </div>
         <EventList events={this.state.events} />
       </div>
     );
