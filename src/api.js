@@ -2,7 +2,7 @@ import { mockData } from './mock-data';
 import axios from 'axios';
 import NProgress from 'nprogress';
 
-const extractLocations = (events) => {
+export const extractLocations = (events) => {
     var extractLocations = events.map((event) => event.location);
     var locations = [...new Set(extractLocations)];
     return locations;
@@ -37,7 +37,7 @@ const getToken = async (code) => {
     return access_token;
 };
 
-export const checkToken = async (accessToken) => {
+const checkToken = async (accessToken) => {
     const result = await fetch(
         `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
     )
@@ -53,7 +53,7 @@ export const getEvents = async () => {
     //returns mock data on local host
     if (window.location.href.startsWith("http://localhost")) {
         NProgress.done();
-        return { events: mockData, locations: extractLocations(mockData) };
+        return mockData;
     }
 
     //returns previously cached events when online 

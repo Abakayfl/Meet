@@ -4,7 +4,7 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import EventGenre from './EventGenre';
 import NumberOfEvents from './NumberOfEvents';
-import { getEvents, checkToken } from './api';
+import { getEvents, extractLocations } from './api';
 import { OfflineAlert } from './Alert';
 import {
   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
@@ -17,9 +17,7 @@ class App extends Component {
     locations: [],
     numberOfEvents: '24',
     currentLocation: "all",
-    alertText: '',
-    tokenCheck: false
-
+    alertText: ''
   }
 
   updateEvents = (location, eventCount) => {
@@ -63,19 +61,14 @@ class App extends Component {
     }
   }
 
-  async componentDidMount() {
-    const accessToken = localStorage.getItem('access_token');
-    const validToken = accessToken !== null ? await checkToken(accessToken) : false;
-    this.setState({ tokenCheck: validToken });
-    if (validToken === true) this.updateEvents()
-    const searchParams = new URLSearchParams(window.location.search);
-    const code = searchParams.get('code');
-
+  componentDidMount() {
     this.mounted = true;
-    if (code && this.mounted === true && validToken === false) {
-      this.setState({ tokenCheck: true });
-      this.updateEvents();
-    }
+    getEvents().then((events) => {
+      if (this.mounted) {
+        this.setState({ events, locations: extractLocations(events) });
+      }
+    });
+    this.ifOnline();
   }
 
   componentWillUnmount() {
