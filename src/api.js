@@ -73,7 +73,7 @@ export const getEvents = async () => {
         const url = 'https://4yqb1ohnq0.execute-api.ca-central-1.amazonaws.com/dev/api/get-events' + '/' + token;
         const result = await axios.get(url);
         if (result.data) {
-            var locations = extractLocations(result.data.events);
+            let locations = extractLocations(result.data.events);
             localStorage.setItem("lastEvents", JSON.stringify(result.data));
             localStorage.setItem("locations", JSON.stringify(locations));
         }
