@@ -87,12 +87,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Meet</h1>
+        <div id="header-container">
+          <h1 id="header"><span id="devel">WebDev</span><span id="for">for</span><span id="Everybody">Everybody</span></h1>
+        </div>
         <OfflineAlert text={this.state.alertText} />
-        <CitySearch
-          locations={this.state.locations}
-          updateEvents={this.updateEvents}
-        />
+        <br></br><br></br>
+        <p id="subheader">Want to improve your web development skills?<br /><br />Explore upcoming events in <span id="webdev-header">Web Development</span> from around the world!</p>
+        <br /><br />
+        <label id="city-label">Select your city:
+          <br /><br /><br />
+          <CitySearch
+            locations={this.state.locations}
+            updateEvents={this.updateEvents}
+          />
+        </label>
+        <br /><br />
         <NumberOfEvents
           numberOfEvents={this.state.numberOfEvents}
           updateEvents={this.updateEvents}
