@@ -8,35 +8,6 @@ export const extractLocations = (events) => {
     return locations;
 };
 
-const removeQuery = () => {
-    if (window.history.pushState && window.location.pathname) {
-        var newurl =
-            window.location.protocol +
-            "//" +
-            window.location.host +
-            window.location.pathname;
-        window.history.pushState("", "", newurl);
-    } else {
-        newurl = window.location.protocol + "//" + window.location.host;
-        window.history.pushState("", "", newurl);
-    }
-};
-
-const getToken = async (code) => {
-    const encodeCode = encodeURIComponent(code);
-    const { access_token } = await fetch(
-        'https://4yqb1ohnq0.execute-api.ca-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode
-    )
-        .then((res) => {
-            return res.json();
-        })
-        .catch((error) => error);
-
-    access_token && localStorage.setItem("access_token", access_token);
-
-    return access_token;
-};
-
 const checkToken = async (accessToken) => {
     const result = await fetch(
         `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
@@ -56,8 +27,6 @@ export const getEvents = async () => {
         return mockData;
     }
 
-    const token = await getAccessToken();
-
     if (!navigator.onLine) {
         const events = localStorage.getItem('lastEvents');
         NProgress.done();
@@ -66,6 +35,8 @@ export const getEvents = async () => {
             locations: extractLocations(JSON.parse(events).events)
         };
     }
+
+    const token = await getAccessToken();
 
     if (token) {
         removeQuery();
@@ -99,5 +70,34 @@ export const getAccessToken = async () => {
         return code && getToken(code);
     }
     return accessToken;
+};
+
+const removeQuery = () => {
+    if (window.history.pushState && window.location.pathname) {
+        var newurl =
+            window.location.protocol +
+            "//" +
+            window.location.host +
+            window.location.pathname;
+        window.history.pushState("", "", newurl);
+    } else {
+        newurl = window.location.protocol + "//" + window.location.host;
+        window.history.pushState("", "", newurl);
+    }
+};
+
+const getToken = async (code) => {
+    const encodeCode = encodeURIComponent(code);
+    const { access_token } = await fetch(
+        'https://4yqb1ohnq0.execute-api.ca-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode
+    )
+        .then((res) => {
+            return res.json();
+        })
+        .catch((error) => error);
+
+    access_token && localStorage.setItem("access_token", access_token);
+
+    return access_token;
 };
 
