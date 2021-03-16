@@ -63,12 +63,14 @@ class App extends Component {
 
   componentDidMount() {
     this.mounted = true;
-    getEvents().then((events) => {
+    getEvents().then((response) => {
       if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
+        this.setState({
+          events: response.events,
+          locations: response.locations,
+        });
       }
     });
-    this.ifOnline();
   }
 
   componentWillUnmount() {
