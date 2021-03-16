@@ -69,7 +69,7 @@ class App extends Component {
     })
     return data;
   };
-  async componentDidMount() {
+  componentDidMount() {
     this.mounted = true;
     getEvents().then((events) => {
       if (this.mounted) {
