@@ -89,7 +89,7 @@ class App extends Component {
       <div className="App">
         <div id="header-container">
           <h1 id="header"><span id="devel">WebDev</span><span id="for">for</span><span id="Everybody">Everybody</span></h1>
-          <OfflineAlert text={this.state.infoText} />
+          <OfflineAlert text={this.state.alertText} />
         </div>
         <br></br><br></br>
         <p id="subheader">Want to improve your web development skills?<br /><br />Explore upcoming events in <span id="webdev-header">Web Development</span> from around the world!</p>
