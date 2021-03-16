@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import * as atatus from 'atatus-spa';
 
 
+
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
