@@ -17,17 +17,17 @@ class App extends Component {
     locations: [],
     numberOfEvents: '24',
     currentLocation: "all",
-    alertText: ''
+    infoText: ''
   }
 
   updateEvents = (location, eventCount) => {
     if (!navigator.onLine) {
       this.setState({
-        alertText: "You are OFFLINE. But you can use the app, without events update"
+        infoText: "You are OFFLINE. But you can use the app, without events update"
       });
     } else {
       this.setState({
-        alertText: ""
+        infoText: ""
       })
     }
     const { currentLocation, numberOfEvents } = this.state;
@@ -89,7 +89,7 @@ class App extends Component {
       <div className="App">
         <div id="header-container">
           <h1 id="header"><span id="devel">WebDev</span><span id="for">for</span><span id="Everybody">Everybody</span></h1>
-          <p className="error-alert-offline" ><OfflineAlert text={this.state.alertText} /></p>
+          <p className="error-alert-offline" ><OfflineAlert text={this.state.infoText} /></p>
         </div>
         <br></br><br></br>
         <p id="subheader">Want to improve your web development skills?<br /><br />Explore upcoming events in <span id="webdev-header">Web Development</span> from around the world!</p>
