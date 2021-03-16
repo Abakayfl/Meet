@@ -3,7 +3,7 @@ import axios from 'axios';
 import NProgress from 'nprogress';
 
 export const extractLocations = (events) => {
-    var extractLocations = events.map((events) => events.location);
+    var extractLocations = events.map((event) => event.location);
     var locations = [...new Set(extractLocations)];
     return locations;
 };
@@ -63,7 +63,7 @@ export const getEvents = async () => {
         NProgress.done();
         return {
             events: JSON.parse(events).events,
-            locations: extractLocations(JSON.parse(events).events),
+            locations: extractLocations(JSON.parse(events).events)
         };
     }
 
@@ -77,7 +77,7 @@ export const getEvents = async () => {
             localStorage.setItem("locations", JSON.stringify(locations));
         }
         NProgress.done();
-        return { events: result.data.events, locations };
+        return result.data.events;
     }
 };
 
