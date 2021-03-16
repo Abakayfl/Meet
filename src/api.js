@@ -63,7 +63,7 @@ export const getEvents = async () => {
         NProgress.done();
         return {
             events: JSON.parse(events).events,
-            locations: extractLocations(JSON.parse(events).events)
+            locations: extractLocations(JSON.parse(events).events),
         };
     }
 
