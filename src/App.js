@@ -21,6 +21,15 @@ class App extends Component {
   }
 
   updateEvents = (location, eventCount) => {
+    if (!navigator.onLine) {
+      this.setState({
+        alertText: "You are OFFLINE. But you can use the app, without events update"
+      });
+    } else {
+      this.setState({
+        alertText: ""
+      })
+    }
     const { currentLocation, numberOfEvents } = this.state;
     if (location) {
       getEvents().then((events) => {
@@ -47,19 +56,24 @@ class App extends Component {
         });
       });
     }
+  };
+
+  componentDidMount() {
+    this.mounted = true;
+    getEvents().then((events) => {
+      if (this.mounted) {
+        this.setState({
+          events: events,
+          locations: extractLocations(events),
+        });
+      }
+    });
   }
 
-  ifOnline = () => {
-    if (!navigator.onLine) {
-      this.setState({
-        infoText: 'You are currently offline- events may not be up to date'
-      })
-    } else {
-      return this.setState({
-        infoText: '',
-      })
-    }
+  componentWillUnmount() {
+    this.mounted = false;
   }
+
   getData = () => {
     const { locations, events } = this.state;
     const data = locations.map((location) => {
@@ -69,19 +83,6 @@ class App extends Component {
     })
     return data;
   };
-  componentDidMount() {
-    this.mounted = true;
-    getEvents().then((events) => {
-      if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
-      }
-    });
-    this.ifOnline();
-  }
-
-  componentWillUnmount() {
-    this.mounted = false;
-  }
 
   render() {
     return (
