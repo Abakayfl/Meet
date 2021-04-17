@@ -14,7 +14,7 @@ Key Features
 5. Add an app shortcut to the home screen.
 6. View a chart showing the number of upcoming events by city.
 
-##Feature 2: Show/Hide an event’s details.## 
+## Feature 2: Show/Hide an event’s details.
 User Story
 As a user
 I should be able to click on an event.
