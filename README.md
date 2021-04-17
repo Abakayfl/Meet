@@ -20,15 +20,15 @@ User Story
 As a user
 I should be able to click on an event. So that I can see more/less detail about that event.
 Scenarios
-Scenario 1: An event element is collapsed by default.
+- Scenario 1: An event element is collapsed by default.
 Given The main page showed all the events.
 When the user selects a city
 Then The user will see a list of events in that city by title except the details which is hidden/collapsed by default
-Scenario 2: User can expand an event to see its details.
+- Scenario 2: User can expand an event to see its details.
 Given The user did see a list of events,
 When the user clicks on an event
 Then the event will expand to show more detail about that event.
-Scenario 3: User can collapse an event to hide its details.
+- Scenario 3: User can collapse an event to hide its details.
 Given The main page showed an expanded event with its details. When the user clicks on the expanded event
 Then the event will collapse to hide extra details
 
@@ -38,10 +38,10 @@ As a user
 I should be able to select how many events I want to see.
 So that I can choose the number of events on screen at a time.
 Scenarios
-Scenario 1: When a user did not specify a number, 32 is the default number.
+- Scenario 1: When a user did not specify a number, 32 is the default number.
 Given The main page showed events from a city. When The user loads the list of events
 Then 32 events will be loaded by default.
-Scenario 2: User can change the number of events they want to see.
+- Scenario 2: User can change the number of events they want to see.
 Given the main page showed events from a city.
 When the user inputs the number of events that they want to see per page
 Then the number of events on the page will change to match the number that the user input
