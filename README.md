@@ -19,7 +19,7 @@ Key Features
 User Story
 As a user
 I should be able to click on an event. So that I can see more/less detail about that event.
-Scenarios
+Scenarios:
 - Scenario 1: An event element is collapsed by default.
 Given The main page showed all the events.
 When the user selects a city
@@ -38,7 +38,7 @@ User Story
 As a user
 I should be able to select how many events I want to see.
 So that I can choose the number of events on screen at a time.
-Scenarios
+Scenarios:
 - Scenario 1: When a user did not specify a number, 32 is the default number.
 Given The main page showed events from a city. When The user loads the list of events
 Then 32 events will be loaded by default.
@@ -53,7 +53,7 @@ User Story
 As a user,
 I should be able to use the app when offline.
 So that I do not need internet access to see the events I was viewing previously
-Scenarios
+Scenarios: 
 - Scenario 1: Show cached data when there is no internet connection.
 Given The user was not connected to the internet.
 When the user opens the app
@@ -68,7 +68,7 @@ Then the app will display an error saying that they must reconnect to the intern
 User Story
 As a user,
 I should be able to see a visualization of the events for the different cities. So that I can easily see which cities are the most eventful.
-Scenarios
+Scenario:
 - Scenario 1: Show a chart with the number of upcoming events in each city.
 Given the user was using the app for multiple cities.
 When the user opens the app
