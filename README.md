@@ -32,8 +32,9 @@ Then the event will expand to show more detail about that event.
 Given The main page showed an expanded event with its details. When the user clicks on the expanded event
 Then the event will collapse to hide extra details
 
-## Feature 3: Specify number of events. User Story
+## Feature 3: Specify number of events. 
 
+User Story
 As a user
 I should be able to select how many events I want to see.
 So that I can choose the number of events on screen at a time.
@@ -46,8 +47,9 @@ Given the main page showed events from a city.
 When the user inputs the number of events that they want to see per page
 Then the number of events on the page will change to match the number that the user input
  
-## Feature 4: Use the App when offline. User Story
+## Feature 4: Use the App when offline. 
 
+User Story
 As a user,
 I should be able to use the app when offline.
 So that I do not need internet access to see the events I was viewing previously
@@ -61,8 +63,9 @@ Given the user was not connected to the internet and the app is open.
 When the user tries to change the settings that they are not cached
 Then the app will display an error saying that they must reconnect to the internet to access that data.
 
-## Feature 5: Data visualization User Story
+## Feature 5: Data visualization 
 
+User Story
 As a user,
 I should be able to see a visualization of the events for the different cities. So that I can easily see which cities are the most eventful.
 Scenarios
