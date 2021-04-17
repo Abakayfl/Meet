@@ -15,10 +15,10 @@ Key Features
 6. View a chart showing the number of upcoming events by city.
 
 ## Feature 2: Show/Hide an event’s details.
+
 User Story
 As a user
-I should be able to click on an event.
-So that I can see more/less detail about that event.
+I should be able to click on an event. So that I can see more/less detail about that event.
 Scenarios
 Scenario 1: An event element is collapsed by default.
 Given The main page showed all the events.
@@ -33,6 +33,7 @@ Given The main page showed an expanded event with its details. When the user cli
 Then the event will collapse to hide extra details
 
 ## Feature 3: Specify number of events. User Story
+
 As a user
 I should be able to select how many events I want to see.
 So that I can choose the number of events on screen at a time.
@@ -46,6 +47,7 @@ When the user inputs the number of events that they want to see per page
 Then the number of events on the page will change to match the number that the user input
  
 ## Feature 4: Use the App when offline. User Story
+
 As a user,
 I should be able to use the app when offline.
 So that I do not need internet access to see the events I was viewing previously
@@ -60,6 +62,7 @@ When the user tries to change the settings that they are not cached
 Then the app will display an error saying that they must reconnect to the internet to access that data.
 
 ## Feature 5: Data visualization User Story
+
 As a user,
 I should be able to see a visualization of the events for the different cities. So that I can easily see which cities are the most eventful.
 Scenarios
