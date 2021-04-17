@@ -52,11 +52,11 @@ As a user,
 I should be able to use the app when offline.
 So that I do not need internet access to see the events I was viewing previously
 Scenarios
-Scenario 1: Show cached data when there is no internet connection.
+- Scenario 1: Show cached data when there is no internet connection.
 Given The user was not connected to the internet.
 When the user opens the app
 Then the users will see the events in the city that were viewed by the user last time.
-Scenario 2: Show error when user changes the settings (city, time range)
+- Scenario 2: Show error when user changes the settings (city, time range)
 Given the user was not connected to the internet and the app is open.
 When the user tries to change the settings that they are not cached
 Then the app will display an error saying that they must reconnect to the internet to access that data.
@@ -66,7 +66,7 @@ Then the app will display an error saying that they must reconnect to the intern
 As a user,
 I should be able to see a visualization of the events for the different cities. So that I can easily see which cities are the most eventful.
 Scenarios
-Scenario 1: Show a chart with the number of upcoming events in each city.
+- Scenario 1: Show a chart with the number of upcoming events in each city.
 Given the user was using the app for multiple cities.
 When the user opens the app
 Then the app will display multiple cities with the events in each in a bar graph that easily communicates the number of events in each city.
