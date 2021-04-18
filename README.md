@@ -74,5 +74,8 @@ Given the user was using the app for multiple cities.
 When the user opens the app
 Then the app will display multiple cities with the events in each in a bar graph that easily communicates the number of events in each city.
 
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+
 ## Link for the app
 https://abakayfl.github.io/meet/
